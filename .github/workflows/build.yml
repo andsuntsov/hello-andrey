@@ -14,6 +14,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build Docker image
-        run: docker build -t andsuntsov/hello-andrey:v1 .
+        run: docker build -t andsuntsov/hello-andrey:latest -t andsuntsov/hello-andrey:v3 .
       - name: Push Docker image
-        run: docker push andsuntsov/hello-andrey:v1
+        run: |
+          docker push andsuntsov/hello-andrey:v3
+          docker push andsuntsov/hello-andrey:latest
